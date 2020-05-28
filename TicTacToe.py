@@ -1,6 +1,11 @@
-#tictactor by python
-#easy gaming programming
+# tictactoe by python
+# easy gaming programming
 
+print('--------------')
+print('TicTacToe game')
+print('-Demo version-')
+print('--------------')
+print()
 def printBoard(board):
     print(board['1'] + '|' + board['2'] + '|' + board['3'])
     print('-+-+-')
@@ -21,11 +26,25 @@ theBoard = {
     '9' : '9'
     }
 
-turn = 'X'
+#Choose your turn
+print("Player X or O?")
+print("Please input X or O")
+turn = input()
+turn1 = turn.lower()
+while turn1 != 'x' and turn != 'o':
+    print("Please input X or O")
+    turn = input()
+    
+printBoard(theBoard)
+
 for picking in range(9):
     print("Turn " + turn)
     print("Please enter location you want to put " + turn)
     pick = input()
+    if int(pick) not in range(9):
+        print('Please enter in range from 1 to 9 only')
+        pick=input()
+        
     theBoard[pick] = turn
     printBoard(theBoard)
 
